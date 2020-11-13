@@ -1,0 +1,58 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_radio_player (0.0.1):
+    - Flutter
+  - get_version (0.0.1):
+    - Flutter
+  - package_info (0.0.1):
+    - Flutter
+  - rate_my_app (0.7.1):
+    - Flutter
+  - share (0.0.1):
+    - Flutter
+  - shared_preferences (0.0.1):
+    - Flutter
+  - webview_flutter (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_radio_player (from `.symlinks/plugins/flutter_radio_player/ios`)
+  - get_version (from `.symlinks/plugins/get_version/ios`)
+  - package_info (from `.symlinks/plugins/package_info/ios`)
+  - rate_my_app (from `.symlinks/plugins/rate_my_app/ios`)
+  - share (from `.symlinks/plugins/share/ios`)
+  - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+  - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_radio_player:
+    :path: ".symlinks/plugins/flutter_radio_player/ios"
+  get_version:
+    :path: ".symlinks/plugins/get_version/ios"
+  package_info:
+    :path: ".symlinks/plugins/package_info/ios"
+  rate_my_app:
+    :path: ".symlinks/plugins/rate_my_app/ios"
+  share:
+    :path: ".symlinks/plugins/share/ios"
+  shared_preferences:
+    :path: ".symlinks/plugins/shared_preferences/ios"
+  webview_flutter:
+    :path: ".symlinks/plugins/webview_flutter/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_radio_player: 36b1e6d075fdf47b0aae3b2e8a5db3327bef88b3
+  get_version: 2bc18c4e26a265571662cab5d38f8b50dc8c1c77
+  package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
+  rate_my_app: 3b64dd0876bd286001595ee2e69193e757c4d77c
+  share: 0b2c3e82132f5888bccca3351c504d0003b3b410
+  shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
+  webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.10.0

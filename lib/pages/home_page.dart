@@ -18,6 +18,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
+import 'dart:io';
 
 
 
@@ -292,32 +293,32 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 alignment: Alignment.topCenter,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 22),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      StreamBuilder<String>(
-                          initialData: "",
-                          stream: _flutterRadioPlayer.metaDataStream,
-                          builder: (context, snapshot) {
-                            if (snapshot.data.isNotEmpty) {
-                              int indexStart = snapshot.data.indexOf('title="');
-                              int indexEnd = snapshot.data.indexOf('",');
-                              final track = snapshot.data.substring(indexStart+7, indexEnd) ?? '';
-                              return Padding(
-                                padding: const EdgeInsets.all(12.0),
-                                child: Text('$track',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    // fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                              );
-                            } else return Container();
-                          }),
-                    ],
-                  ),
+                  child: StreamBuilder<String>(
+                      initialData: "",
+                      stream: _flutterRadioPlayer.metaDataStream,
+                      builder: (context, snapshot) {
+                        if (snapshot.data.isNotEmpty) {
+                          String _track = snapshot.data;
+                          if (Platform.isIOS) {
+                            _track = "${snapshot.data}";
+                          } else {
+                            int indexStart = snapshot.data.indexOf('title="');
+                            int indexEnd = snapshot.data.indexOf('",');
+                            _track = snapshot.data?.substring(indexStart+7, indexEnd) ?? '';
+                          }
+                          return Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Text('$_track',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                // fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                          );
+                        } else return Container();
+                      }),
                 ),
               ),
 
