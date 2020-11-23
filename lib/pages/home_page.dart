@@ -1,5 +1,6 @@
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:tttradionetwork/core/model/firebase_permission.dart';
 import 'package:tttradionetwork/core/ui/error_internet_app.dart';
 import 'package:tttradionetwork/widgets/web_show_schedule.dart';
 import 'package:flutter_radio_player/flutter_radio_player.dart';
@@ -63,6 +64,8 @@ const List<Choice> choices = const <Choice>[
 
 
 class HomePage extends StatefulWidget {
+  FirebasePermission permission;
+  HomePage(this.permission);
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -71,7 +74,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   var playerState = FlutterRadioPlayer.flutter_radio_paused;
   FlutterRadioPlayer _flutterRadioPlayer = new FlutterRadioPlayer();
-  final String radioStream = "http://ec1.everestcast.host:2260/;stream.mp3";
+  String radioStream;
   AnimationController _animationController;
   final MobxHome _mobxHome = MobxHome();
   Choice _selectedChoice = choices[0];
@@ -80,6 +83,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    if (widget.permission != null && widget.permission.url != null) {
+      radioStream = widget.permission.url;
+    } else {
+      radioStream = "http://ec1.everestcast.host:2260/;stream.mp3";
+    }
     _initRadioService();
     _initAnimation();
   }

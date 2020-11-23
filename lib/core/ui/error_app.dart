@@ -1,7 +1,7 @@
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:tttradionetwork/core/ui/responsive_safe_area.dart';
 import 'package:tttradionetwork/core/util/image_helper.dart';
-import 'package:tttradionetwork/pages/splash_page.dart';
+import 'package:tttradionetwork/main.dart';
 import 'package:flutter/material.dart';
 
 
@@ -50,7 +50,7 @@ class ErrorApp extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-                          builder: (context) => SplashPage()), (route) => false);
+                          builder: (context) => MyApp()), (route) => false);
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(
